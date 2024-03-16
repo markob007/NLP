@@ -34,7 +34,7 @@ import time
 
 class QGen:
     
-    def __init__(self):
+    def __init__(self,nlp):
 
         self.tokenizer = T5Tokenizer.from_pretrained('t5-large')
         model = T5ForConditionalGeneration.from_pretrained('Parth/result')
@@ -43,7 +43,7 @@ class QGen:
         # model.eval()
         self.device = device
         self.model = model
-        self.nlp = spacy.load('en_core_web_sm')
+        self.nlp = nlp
 
         self.s2v = Sense2Vec().from_disk('s2v_old')
 
